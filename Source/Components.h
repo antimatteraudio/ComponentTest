@@ -152,15 +152,16 @@ private:
 //==============================================================================
 class SceneComponent    : public juce::Component
 {
+    juce::Image knobImage = juce::ImageCache::getFromMemory(BinaryData::knob1_png, BinaryData::knob1_pngSize);
 public:
     
-    SceneComponent()
+    SceneComponent() : myKnob(knobImage, 31, 0, 0)
     {
         addAndMakeVisible (floor);
         addAndMakeVisible (house);
 
-        juce::Image knobImage = juce::ImageCache::getFromMemory(BinaryData::knob1_png, BinaryData::knob1_pngSize);
-        FilmStripKnob myKnob(knobImage, 31, 0, 0);
+
+//        FilmStripKnob myKnob(knobImage, 31, 0, 0);
         addAndMakeVisible(myKnob);
         myKnob.setBounds(171, 70, knobImage.getWidth(), knobImage.getWidth());
        
@@ -180,6 +181,7 @@ public:
 private:
     FloorComponent floor;
     HouseComponent house;
+    FilmStripKnob myKnob;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SceneComponent)
