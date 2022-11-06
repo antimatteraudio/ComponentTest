@@ -152,9 +152,8 @@ private:
 //==============================================================================
 class SceneComponent: public juce::Component
 {
-    static FilmStripKnob myKnob(juce::Image, int, bool, int);
-public:
 
+public:
     SceneComponent()
     {
         addAndMakeVisible (floor);
@@ -180,6 +179,7 @@ public:
 private:
     FloorComponent floor;
     HouseComponent house;
+    static FilmStripKnob myKnob(juce::Image, int, bool, int);
 
 
     //==============================================================================
